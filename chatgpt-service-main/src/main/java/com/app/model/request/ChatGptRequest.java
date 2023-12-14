@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -13,7 +15,7 @@ import java.io.Serializable;
 public class ChatGptRequest implements Serializable {
 
     private String model;
-    private String prompt;
+    private List<Map<String,String>> messages;
     private Double temperature;
     @JsonProperty("max_tokens")
     private Integer maxTokens;

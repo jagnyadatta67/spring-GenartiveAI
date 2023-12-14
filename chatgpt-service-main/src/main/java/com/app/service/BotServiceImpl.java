@@ -11,6 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class BotServiceImpl implements BotService {
 
@@ -33,37 +37,58 @@ public class BotServiceImpl implements BotService {
 
         return responseEntity.getBody();
     }
+//
+//    public String createProductDescprition(BotRequest botRequest) {
+//        return this.getResponse(
+//                this.buildHttpEntity(
+//                        new ChatGptRequest(
+//                                ChatGptConfig.MODEL,
+//                               "Write the Product description for "+ botRequest.getL2category(),
+//                                ChatGptConfig.TEMPERATURE,
+//                                ChatGptConfig.MAX_TOKEN,
+//                                ChatGptConfig.TOP_P)));
+//    }
+//    public String suggestKeyWord(BotRequest botRequest) {
+//        var c= this.getResponse(
+//                this.buildHttpEntity(
+//                        new ChatGptRequest(
+//                                ChatGptConfig.MODEL,
+//                                "Suggest Best outfit with "+ botRequest.getColour()+","+botRequest+"  as comma separated",
+//                                ChatGptConfig.TEMPERATURE,
+//                                ChatGptConfig.MAX_TOKEN,
+//                                ChatGptConfig.TOP_P)));
+//        return c;
+//    }
+//
+//    public String suggestClothes(BotRequest botRequest) {
+//        return this.getResponse(
+//                this.buildHttpEntity(
+//                        new ChatGptRequest(
+//                                ChatGptConfig.MODEL,
+//                                "Suggest Best outfit with  "+ botRequest.getL2category()+"  comma separated",
+//                                ChatGptConfig.TEMPERATURE,
+//                                ChatGptConfig.MAX_TOKEN,
+//                                ChatGptConfig.TOP_P)));
+//    }
 
-    public String createProductDescprition(BotRequest botRequest) {
-        return this.getResponse(
-                this.buildHttpEntity(
-                        new ChatGptRequest(
-                                ChatGptConfig.MODEL,
-                               "Write the Product description for "+ botRequest.getMessage(),
-                                ChatGptConfig.TEMPERATURE,
-                                ChatGptConfig.MAX_TOKEN,
-                                ChatGptConfig.TOP_P)));
-    }
-    public String suggestKeyWord(BotRequest botRequest) {
-        return this.getResponse(
-                this.buildHttpEntity(
-                        new ChatGptRequest(
-                                ChatGptConfig.MODEL,
-                                "Suggest Best outfit with "+ botRequest.getMessage()+"  as comma separated",
-                                ChatGptConfig.TEMPERATURE,
-                                ChatGptConfig.MAX_TOKEN,
-                                ChatGptConfig.TOP_P)));
-    }
+    @Override
+    public String suggestStyles(BotRequest botRequest) {
+        Map<String,String> msg=new HashMap<>();
+        String content= "top 3 best outfit with outfit name for "+ botRequest.getColour()+","+botRequest.getGender()+" "+botRequest.getItem()+" in json array format with a list of objects named \"outfits\" having attribute \"outfitName\" and a list of objects \"items\" object having attribute \"color\" and \"itemType\" and \"style\" ";
+        msg.put("role","system");
+        msg.put("content","You will be provided with a clothing item name and you need to provide best outfit style names, outfit items and item categories in comma separated values");
+        msg.put("role","user");
+        msg.put("content",content);
 
-    public String suggestMatch(BotRequest botRequest) {
-        return this.getResponse(
+        var styles= this.getResponse(
                 this.buildHttpEntity(
                         new ChatGptRequest(
                                 ChatGptConfig.MODEL,
-                                "Suggest Best outfit with  "+ botRequest.getMessage()+" in comma separated",
+                                Arrays.asList(msg),
                                 ChatGptConfig.TEMPERATURE,
                                 ChatGptConfig.MAX_TOKEN,
                                 ChatGptConfig.TOP_P)));
+        return styles;
     }
 }
 

@@ -17,7 +17,7 @@ public class AlgoliaServiceImpl implements AlgoliaService {
         headers.set("X-Algolia-API-Key", apiKey);
         headers.set("X-Algolia-Application-Id", applicationId);
         headers.setContentType(MediaType.TEXT_PLAIN);
-        String requestBody = String.format("{ \"params\": \"query=%s&hitsPerPage=%d&getRankingInfo=%b\" }", botRequest.getMessage(), hitsPerPage, getRankingInfo);
+        String requestBody = String.format("{ \"params\": \"query=%s&hitsPerPage=%d&getRankingInfo=%b\" }", botRequest.getColour(), hitsPerPage, getRankingInfo);
         HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
         ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
         HttpStatusCode statusCode = responseEntity.getStatusCode();

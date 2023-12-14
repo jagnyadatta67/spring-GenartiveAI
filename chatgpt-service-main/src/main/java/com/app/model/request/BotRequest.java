@@ -6,7 +6,9 @@ import java.io.Serializable;
 
 @Data
 public class BotRequest implements Serializable {
-    private String message;
+    private String colour;
+    private String gender;
+    private String item;
 }
 
 

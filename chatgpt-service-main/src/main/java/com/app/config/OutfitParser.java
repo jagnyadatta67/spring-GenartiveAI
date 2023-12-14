@@ -9,23 +9,23 @@ import java.util.List;
 public class OutfitParser {
 
 
-    public  static List<String> parse(String jsonData) {
+    public  static String parseStyles(String jsonData) {
         ObjectMapper objectMapper = new ObjectMapper();
         List<String> string =new ArrayList<>();
+        String outfitText = null;
         try {
             JsonNode rootNode = objectMapper.readTree(jsonData);
             JsonNode choicesNode = rootNode.get("choices");
             JsonNode outfitNode = choicesNode.get(0);
-            String outfitText = outfitNode.get("text").asText();
-            String[] outfitItems = outfitText.split("\\n\\n")[1].split(", ");
+            
+            outfitText = outfitNode.get("message").get("content").asText();
+            outfitText.replace("\n","");
+            outfitText.replace("\\","");
             // Printing the outfit details
-            System.out.println("Outfit Details:");
-            for (String item : outfitItems) {
-                string.add(item);
-            }} catch (Exception e) {
+            
+            } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return string;
+        return outfitText;
     }
 }
