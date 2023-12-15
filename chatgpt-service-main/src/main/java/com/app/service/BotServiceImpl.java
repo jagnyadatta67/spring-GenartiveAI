@@ -74,7 +74,7 @@ public class BotServiceImpl implements BotService {
     @Override
     public String suggestStyles(BotRequest botRequest) {
         Map<String,String> msg=new HashMap<>();
-        String content= "top 3 best outfit with outfit name for "+ botRequest.getColour()+","+botRequest.getGender()+" "+botRequest.getItem()+" in json array format with a list of objects named \"outfits\" having attribute \"outfitName\" and a list of objects \"items\" object having attribute \"color\" and \"itemType\" and \"style\" ";
+        String content= "top 3 best outfit with outfit name for "+ botRequest.getColour()+","+botRequest.getCode().replace("-"," ")+" in json array format with a list of objects named \"outfits\" having attribute \"outfitName\" and a list of objects \"items\" object having attribute \"color\" and \"itemType\" and \"style\" ";
         msg.put("role","system");
         msg.put("content","You will be provided with a clothing item name and you need to provide best outfit style names, outfit items and item categories in comma separated values");
         msg.put("role","user");
