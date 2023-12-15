@@ -1,0 +1,14 @@
+com/app/controller/BotController.class
+com/app/model/request/ChatGptRequest.class
+com/app/service/AlgoliaService.class
+com/app/service/BotServiceImpl.class
+com/app/config/ChatGptConfig.class
+com/app/service/AlgoliaServiceImpl.class
+com/app/config/OutfitParser.class
+com/app/model/response/Choice.class
+com/app/config/AlgoliaConfig.class
+com/app/model/request/BotRequest.class
+com/app/model/response/ChatGptResponse.class
+com/app/ChatGPTServiceApplication.class
+com/app/service/BotService.class
+com/app/model/request/BotL2Request.class

@@ -1,0 +1,14 @@
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/model/response/ChatGptResponse.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/model/request/ChatGptRequest.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/ChatGPTServiceApplication.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/model/request/BotRequest.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/config/ChatGptConfig.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/model/request/BotL2Request.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/config/OutfitParser.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/model/response/Choice.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/service/BotServiceImpl.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/service/AlgoliaService.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/service/BotService.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/config/AlgoliaConfig.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/service/AlgoliaServiceImpl.java
+/Users/jagnyapanigrahi/Documents/Work to do/spring-GenartiveAI/chatgpt-service-main/src/main/java/com/app/controller/BotController.java

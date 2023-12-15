@@ -4,6 +4,8 @@ import com.app.config.ChatGptConfig;
 import com.app.model.request.BotRequest;
 import com.app.model.request.ChatGptRequest;
 import com.app.model.response.ChatGptResponse;
+import jakarta.annotation.Resource;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -14,17 +16,21 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class BotServiceImpl implements BotService {
 
     private static RestTemplate restTemplate = new RestTemplate();
+    @Resource
+    private Environment environment;
 
     //    Build headers
     public HttpEntity<ChatGptRequest> buildHttpEntity(ChatGptRequest chatRequest) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(ChatGptConfig.MEDIA_TYPE));
-        headers.add(ChatGptConfig.AUTHORIZATION, ChatGptConfig.BEARER + ChatGptConfig.API_KEY);
+      String apiKey= Objects.nonNull(environment.getProperty("api_key"))? environment.getProperty("api_key"):ChatGptConfig.API_KEY;
+      headers.add(ChatGptConfig.AUTHORIZATION, ChatGptConfig.BEARER + apiKey);
         return new HttpEntity<>(chatRequest, headers);
     }
 
